@@ -121,9 +121,12 @@ foreach ($OU in $OUs) {
 
 Write-Host "`n--- Creating Security Groups (IGDLA Model) ---" -ForegroundColor Cyan
 
+# Sample groups — extend this array for full org structure
 $SecurityGroups = @(
-    @{ Name = "G_EazyPro_Finance_Read"; Path = "OU=Users_VLAN70,$DomainPath" },
-    @{ Name = "G_EazyPro_IT_Admin"; Path = "OU=Management_VLAN80,$DomainPath" }
+    @{ Name = "GG_EazyPro_Finance_Read"; Path = "OU=Users_VLAN70,$DomainPath" },
+    @{ Name = "GG_EazyPro_IT_Admin";     Path = "OU=Management_VLAN80,$DomainPath" },
+    @{ Name = "GG_EazyPro_Economy";      Path = "OU=Users_VLAN70,$DomainPath" },
+    @{ Name = "GG_EazyPro_Board";        Path = "OU=Management_VLAN80,$DomainPath" }
 )
 
 foreach ($Group in $SecurityGroups) {
