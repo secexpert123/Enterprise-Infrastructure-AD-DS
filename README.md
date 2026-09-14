@@ -15,6 +15,7 @@ The infrastructure deployment includes a fully refactored, enterprise‑grade Po
 
 This script automates the creation of Organizational Units (OUs) and Security Groups following the IGDLA model.  
 It is designed for repeatable, safe, and production‑ready execution in Active Directory environments.
+[View the full script: `Setup-EazyPro-Core.ps1`](https://github.com/secexpert123/Enterprise-Infrastructure-AD-DS/blob/main/Setup-EazyPro-Core.ps1)
 
 ---
 
@@ -23,22 +24,22 @@ It is designed for repeatable, safe, and production‑ready execution in Active 
 Beyond the PowerShell automation, this project includes the full Active Directory
 environment design for eazypro.local:
 
-- **DNS** — name resolution for domain controllers and dynamic DNS updates; required
+- **DNS** name resolution for domain controllers and dynamic DNS updates; required
   for AD DS to function (domain logins, device joins).
-- **DHCP** — automatic IP assignment with scopes and reservations, eliminating manual
+- **DHCP** automatic IP assignment with scopes and reservations, eliminating manual
   network configuration across the domain.
-- **VLAN Segmentation** — 4 isolated segments for security and traffic separation:
+- **VLAN Segmentation** 4 isolated segments for security and traffic separation:
 
   | VLAN | Purpose |
   |------|---------|
-  | 80 | Management — switches, servers, network equipment (highly restricted) |
-  | 70 | Users — employee PCs and laptops |
-  | 30 | IoT & Printers — cameras, printers, smart devices (isolated) |
-  | 60 | Guest — internet-only access for visitors |
+  | 80 | Management switches, servers, network equipment (highly restricted) |
+  | 70 | Users employee PCs and laptops |
+  | 30 | IoT & Printers cameras, printers, smart devices (isolated) |
+  | 60 | Guest internet-only access for visitors |
 
-- **GPO** — automated network drive mapping (I:, M:, department folders), hidden
+- **GPO** automated network drive mapping (I:, M:, department folders), hidden
   shares (e.g. `IT-Support$`) for security, and automatic printer assignment by group.
-- **IGDLA Access Model** — Global Groups (GG_IT, GG_Economy, etc.) mapped to Domain
+- **IGDLA Access Model** Global Groups (GG_IT, GG_Economy, etc.) mapped to Domain
   Local Groups representing resources, with permissions assigned only at the DL level
   — implemented in code via the PowerShell automation script below.
 
